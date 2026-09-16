@@ -19,7 +19,7 @@ jobs:
           docker run --rm \
             -v "$PWD":/home/user/hostcwd \
             ghcr.io/kivy/buildozer:latest \
-            android debug
+            bash -c "yes | sdkmanager --licenses >/dev/null 2>&1; buildozer android debug"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
